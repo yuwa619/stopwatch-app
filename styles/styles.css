@@ -1,0 +1,179 @@
+body {
+  display: grid;
+  grid-template-rows: 50% 25% 25%;
+  background-color: #f0fff0;
+  border-radius: 20px;
+}
+.stopwatch-area {
+  display: grid;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styling for the stopwatch display */
+#stopwatch {
+  align-items: center;
+  justify-content: center;
+  font-size: 150px;
+  margin-bottom: 20px;
+  font-family: "DS-DIGIT", monospace;
+}
+
+/* Styling for the milliseconds part */
+#milliseconds {
+  font-size: 50px;
+  font-family: "DS-DIGIT", monospace;
+}
+
+/* Importing the DS-DIGIT font */
+@font-face {
+  font-family: "DS-DIGIT";
+  src: url("fonts/DS-DIGIT.TTF") format("truetype");
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 4 equal buttons */
+  gap: 10px;                              /* space between buttons */
+  width: 70%;                             /* group width */
+  margin: 0 auto;                         /* <-- centres the grid horizontally */
+  align-items: center;                    /* vertical centring inside the grid */
+  margin-bottom: 30px;        /* space below the Lap button */
+}
+
+
+/* Styling for the buttons */
+button {
+  background-color: #4caf50; /* Green */
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 4px 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #228b22; /* Darker green on hover */
+}
+
+button:active {
+  background-color: #006400; /* Even darker green on click */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  body {
+    grid-template-rows: 40% 30% 30%; /* Adjust grid rows for smaller screens */
+  }
+  #stopwatch {
+    font-size: 60px; /* Smaller font size for smaller screens */
+  }
+
+  #milliseconds {
+    font-size: 30px; /* Smaller font size for milliseconds */
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    height: auto; /* Adjust height for smaller screens */
+    align-items: center;
+    justify-items: center; /* Center buttons horizontally */
+    padding: 0 20px; /* Add some padding on the sides */
+    
+  }
+
+  button {
+    width: 80%; /* Make buttons take 80% of width */
+    padding: 10px; /* Adjust padding for smaller buttons */
+    font-size: 30px; /* Smaller font size for buttons */
+    height: auto;
+  }
+  .laps {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    font-size: 14px; /* Smaller font size for lap times */
+    padding: 5px; /* Adjust padding */
+    width: 80%; /* Make laps take 80% of width */
+    align-items: center;
+    justify-items: center; /* Center laps horizontally */
+    height: auto;
+    margin: 0 auto; /* Center the laps container */
+  }
+
+  #stopwatch {
+    font-size: 120px;
+  }
+  #milliseconds {
+    font-size: 60px;
+  }
+}
+
+/* Styling for the laps container */
+.laps {
+    gap: 10px; /* spacing between laps */
+  overflow-y: auto;
+  max-height: 200px;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+  
+}
+
+/* New CSS class for body stopped state */
+.stopped-state button {
+  background-color: #BDB76B; /* DarkKhaki background */
+  transition: background-color 0.3s ease;
+}
+/* New CSS for body stopped state */
+body.stopped-state {
+  background-color: #fffacd; /* LemonChiffon background */
+  transition: background-color 0.3s ease;
+}
+
+/* Styling for the laps list */
+#lapsList {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 300px; /* keeps the laps nicely centered */
+  background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+/* Styling for each lap box */
+.lap-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;       /* subtle border */
+  border-radius: 8px;           /* rounded corners */
+  padding: 8px 12px;
+  margin-bottom: 10px;          /* space between laps */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* light shadow for pop */
+  font-family: Arial, Helvetica, sans-serif
+  font-size: 1rem;
+}
+
+/* Styling for the lap number and time */
+.lap-box span:first-child {
+  font-weight: bold;
+  color: #333;
+}
+/* New CSS class for laps list in stopped state */
+.stopped-state #lapslist {
+  background-color: #DCDCDC; /* Gainsboro background */
+  transition: background-color 0.3s ease;
+}

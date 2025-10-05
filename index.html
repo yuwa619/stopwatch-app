@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="js/index.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Stopwatch Display Section -->
+    <section class="stopwatch-area">
+      <div id="stopwatch">
+        <span id="hours">00</span>:<span id="minutes">00</span>:<span
+          id="seconds"
+          >00</span
+        >.<span id="milliseconds">00</span>
+      </div>
+    </section>
+    <!-- Buttons Section -->
+    <section class="buttons">
+      <button id="startButton">Start</button>
+      <button id="stopButton">Stop</button>
+      <button id="resetButton">Reset</button>
+      <button id="lapButton">Lap</button>
+    </section>
+    <!-- Laps Display Section -->
+    <section class="laps">
+      <div id="lapsContainer">
+            <ul id="lapsList">
+                <!-- Laps will be added here -->
+            </ul>
+        </div>
+  </body>
+</html>

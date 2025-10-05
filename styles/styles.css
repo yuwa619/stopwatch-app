@@ -9,13 +9,22 @@ body {
   place-items: center;
 }
 
+/* Ensures each part of the time display has a minimum width to prevent the clock from shaking when it counts*/
+#stopwatch span {
+  display: inline-block;
+  min-width: 2ch;                /* space for two digits */
+  text-align: center;
+}
+
 /* Styling for the stopwatch display */
 #stopwatch {
   align-items: center;
+  line-height: 1;
   justify-content: center;
   font-size: 150px;
   margin-bottom: 20px;
   font-family: "DS-DIGIT", monospace;
+  gap: 25rem; /* space between time and milliseconds */;
 }
 
 /* Styling for the milliseconds part */
@@ -71,8 +80,12 @@ button:active {
 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
+    /* prevent any horizontal scroll */
+  html, body { overflow-x: hidden; }
+
   body {
-    grid-template-rows: 40% 30% 30%; /* Adjust grid rows for smaller screens */
+    display: grid;
+    grid-template-rows: auto auto auto; /* Adjust grid rows for smaller screens */
   }
   #stopwatch {
     font-size: 60px; /* Smaller font size for smaller screens */
@@ -98,24 +111,23 @@ button:active {
     font-size: 30px; /* Smaller font size for buttons */
     height: auto;
   }
-  .laps {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
-    font-size: 14px; /* Smaller font size for lap times */
-    padding: 5px; /* Adjust padding */
-    width: 80%; /* Make laps take 80% of width */
-    align-items: center;
-    justify-items: center; /* Center laps horizontally */
-    height: auto;
-    margin: 0 auto; /* Center the laps container */
-  }
+  
 
-  #stopwatch {
-    font-size: 120px;
-  }
   #milliseconds {
     font-size: 60px;
   }
+
+  /* laps container sized to screen, centered, scroll if long */
+  .laps {
+    width: min(560px, 100%);
+    margin: 0 auto 20px;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+
+  #lapsList {
+    max-height: 40vh;        /* scroll instead of overflowing screen */
+    overflow-y: auto;
 }
 
 /* Styling for the laps container */

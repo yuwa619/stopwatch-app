@@ -1,7 +1,7 @@
 body {
   display: grid;
   grid-template-rows: 50% 25% 25%;
-  background-color: #f0fff0;
+  background-color: #f0fff0; /* HoneyDew background */
   border-radius: 20px;
 }
 .stopwatch-area {
@@ -128,6 +128,7 @@ button:active {
   #lapsList {
     max-height: 40vh;        /* scroll instead of overflowing screen */
     overflow-y: auto;
+}
 }
 
 /* Styling for the laps container */
